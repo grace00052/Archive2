@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GoldAngelLocket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #image {
+      width: 300px;
+      cursor: pointer;
+    }
+    #logo {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="locket1.png" id="image" />
+  </div>
+
+  <a id="logo" href="https://github.com/anthonytedja" onclick="event.stopPropagation()">
+    <i class="fa fa-github fa-lg"></i>
+  </a>
+
+  <script>
+    const image = document.getElementById('image');
+    const firstImage = 'locket1.png';
+    const secondImage = 'locket2.png';
+    let toggled = false;
+
+    image.addEventListener('click', function () {
+      toggled = !toggled;
+      image.src = toggled ? secondImage : firstImage;
+    });
+  </script>
+</body>
+</html>
