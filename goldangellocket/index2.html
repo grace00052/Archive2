@@ -13,9 +13,6 @@
       width: 300px;
       cursor: pointer;
     }
-    #upload {
-      margin-top: 20px;
-    }
     #logo {
       position: fixed;
       bottom: 10px;
@@ -25,8 +22,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="rimuru.gif" id="image" />
-    <input type="file" id="upload" accept="image/*" />
+    <img src="locket1.png" id="image" />
   </div>
 
   <a id="logo" href="https://github.com/anthonytedja" onclick="event.stopPropagation()">
@@ -34,33 +30,14 @@
   </a>
 
   <script>
-    const upload = document.getElementById('upload');
     const image = document.getElementById('image');
-
-    let uploadedImageURL = null;
+    const firstImage = 'locket1.png';
+    const secondImage = 'locket2.png';
     let toggled = false;
 
-    // For demo, you can use a placeholder second image
-    const secondImage = "https://via.placeholder.com/300x300?text=Second+Image";
-
-    upload.addEventListener('change', function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          uploadedImageURL = e.target.result;
-          image.src = uploadedImageURL;
-          toggled = false; // Reset toggle state
-        }
-        reader.readAsDataURL(file);
-      }
-    });
-
     image.addEventListener('click', function () {
-      if (!uploadedImageURL) return; // Do nothing if no image uploaded
-
       toggled = !toggled;
-      image.src = toggled ? secondImage : uploadedImageURL;
+      image.src = toggled ? secondImage : firstImage;
     });
   </script>
 </body>
